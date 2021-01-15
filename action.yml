@@ -7,6 +7,10 @@ inputs:
     description: "who to greet"
     required: true
     default: "World"
+  how-are-you:
+    description: "how's going"
+    required: true
+    default: "Great"
 
 outputs:
   random-number:
@@ -16,7 +20,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{inputs.who-to-greet}}.
+    - run: |
+      echo Hello ${{inputs.who-to-greet}}.
+      echo Hello ${{inputs.how-are-you}}.
       shell: bash
     - id: random-number-generator
       run: echo '::set-output name=random-id::$(echo $RANDOM)'
