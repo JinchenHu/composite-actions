@@ -20,9 +20,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: |
-      echo Hello ${{inputs.who-to-greet}}.
-      echo Hello ${{inputs.how-are-you}}.
+    - run: echo Hello ${{inputs.who-to-greet}}.
+      shell: bash
+    - run: echo Hello ${{inputs.how-are-you}}.
       shell: bash
     - id: random-number-generator
       run: echo '::set-output name=random-id::$(echo $RANDOM)'
